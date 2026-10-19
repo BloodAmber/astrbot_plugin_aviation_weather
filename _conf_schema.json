@@ -1,0 +1,32 @@
+{
+  "api_base": {
+    "type": "string",
+    "description": "航空气象 API 根地址",
+    "hint": "默认使用 NOAA Aviation Weather Center：https://aviationweather.gov/api/data。一般无需修改；如使用反向代理，可填写代理后的同结构地址。",
+    "default": "https://aviationweather.gov/api/data"
+  },
+  "timeout": {
+    "type": "int",
+    "description": "单次 API 请求超时（秒）",
+    "hint": "默认 15 秒。网络较慢时可调大，建议 10–30；小于 3 会被自动提升到 3。",
+    "default": 15
+  },
+  "proxy": {
+    "type": "string",
+    "description": "可选的 HTTP/HTTPS 代理",
+    "hint": "例如 http://127.0.0.1:7890。留空表示不使用代理。若服务器访问 aviationweather.gov 不稳定，可在这里配置代理。",
+    "default": ""
+  },
+  "fallback_vatsim": {
+    "type": "bool",
+    "description": "NOAA 不可用时回退到 VATSIM METAR",
+    "hint": "开启后，若 NOAA 的 METAR 拉取失败，会尝试 metar.vatsim.net；该备用源通常只有 METAR，没有 TAF 和机场元数据。",
+    "default": true
+  },
+  "cache_ttl": {
+    "type": "int",
+    "description": "成功结果缓存时间（秒）",
+    "hint": "默认 60 秒，避免同一机场被连续查询时重复请求上游。填 0 表示关闭缓存。",
+    "default": 60
+  }
+}

@@ -1,0 +1,22 @@
+name: astrbot_plugin_aviation_weather
+display_name: 航空气象 METAR/TAF
+short_desc: 用 /天气 机场代码 先回复 METAR/TAF 原文，再像正常聊天一样触发一次 LLM 回复。
+desc: 收到“/天气 机场代码”时，先从免费的 NOAA Aviation Weather Center API 拉取 METAR/TAF，直接回复报文原文，再把原文作为当前消息交给 AstrBot 的正常 LLM 流程回复。支持 4 位 ICAO 和常见 3 位 IATA 代码。
+help: |-
+  用法：/天气 <机场代码>
+  示例：/天气 ZBAA、/天气 PEK、/天气 KJFK
+  也支持别名：/机场天气、/航空气象、/metar、/taf
+  输出：先发送 METAR/TAF 原文，再以原文为消息触发一次正常 LLM 回复。
+  数据源：aviationweather.gov（免费、无需 API Key），必要时回退到 VATSIM METAR。
+version: 1.2.0
+author: BloodAmber
+repo: https://github.com/BloodAmber/astrbot_plugin_aviation_weather
+astrbot_version: ">=4.16,<5"
+support_platforms:
+  - aiocqhttp
+  - qq_official
+  - telegram
+  - lark
+  - discord
+  - slack
+  - webchat

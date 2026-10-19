@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.tmp_*
+*.zip
+.DS_Store
+Thumbs.db
+.venv/
+venv/
